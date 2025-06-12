@@ -1,0 +1,11 @@
+# .cargo/config.toml - 工具链配置
+[target.thumbv7em-none-eabihf]
+# 使用 probe-rs 并指定芯片型号
+runner = "probe-rs run --chip STM32H743ZITx --connect-under-reset"
+
+[build]
+target = "thumbv7em-none-eabihf" # Cortex-M7F (带FPU)
+
+[env]
+DEFMT_LOG = "info"  # 建议使用 info 级别减少日志量
+DEFMT_RTT_BUFFER_SIZE = "16384"  # 增大RTT缓冲区大小
